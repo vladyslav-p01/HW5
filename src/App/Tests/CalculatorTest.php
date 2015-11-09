@@ -75,19 +75,16 @@ class CalculatorTest extends \PHPUnit_Framework_TestCase
 
     public function testAddToArray($expected, array $array, $a)
     {
-        //$this->markTestSkipped();
+        $this->assertTrue(is_array($array));
+        $this->assertContainsOnly('int',$array);
+
         $math = new Calculator();
         $massPlus = $math->addToArray($array, $a);
         $this->assertEquals($expected,$massPlus[0]);
 
         $massPlus = $math->addToArray($massPlus,$a);
-        $this->assertContains(2*$expected+$array[0],$massPlus  );
-
-        $this->assertContainsOnly('int',$massPlus);
         $this->assertCount(count($array),$massPlus);
 
-        $this->assertTrue(is_int($a));
-        $this->assertTrue(is_array($array));
     }
 
     public function addToArrayProvider()
@@ -96,7 +93,7 @@ class CalculatorTest extends \PHPUnit_Framework_TestCase
             [
                 [3, [1, 2, 3], 2],
                 [5, array(2, 6, 6), 3],
-                [10, array(5, 6, 7), 5]
+                [10, [5, 5, 5], 5]
             ];
     }
 }
