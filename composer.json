@@ -1,0 +1,21 @@
+{
+    "name": "root/test-hw5.com",
+    "authors": [
+        {
+            "name": "Vladyslav",
+            "email": "vladyslav.p01@gmail.com"
+        }
+    ],
+
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/App/"
+    }
+  },
+
+    "require": {
+        "phpunit/phpunit": "5.0.*"
+    }
+
+}
+
